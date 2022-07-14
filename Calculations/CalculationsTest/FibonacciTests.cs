@@ -11,6 +11,7 @@ namespace CalculationsTest
     public class FibonacciTests
     {
         [Fact]
+        [Trait("Category", "Fibo")]
         public void Fibonacci_hasNoZero()
         {
             //Arrange
@@ -22,6 +23,7 @@ namespace CalculationsTest
         }
 
         [Fact]
+        [Trait("Category", "Fibo")]
         public void Fibonacci_has13()
         {
             //Arrange
@@ -34,6 +36,7 @@ namespace CalculationsTest
 
 
         [Fact]
+        [Trait("Category", "Fibo")]
         public void Fibonacci_hasNo4()
         {
             //Arrange

@@ -6,12 +6,14 @@ namespace CalculationsTest
     public class CalculatorTest
     {
         [Fact]
+        [Trait("Category", "Calculator")]
         public void TestAdd()
         {
             Assert.True(true);
         }
 
         [Fact]
+        [Trait("Category", "Calculator")]
         public void Add_giventwoValues_ReturnDouble()
         {
             //Arrange
@@ -23,6 +25,7 @@ namespace CalculationsTest
         }
 
         [Fact]
+        [Trait("Category", "Calculator")]
         public void Add_giventwoValues_ReturnInt()
         {
             //Arrange

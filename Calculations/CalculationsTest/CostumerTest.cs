@@ -11,6 +11,7 @@ namespace CalculationsTest
     public class CostumerTest
     {
         [Fact]
+        [Trait("Category", "Costumer")]
         public void Customer_name_notEmpty()
         {
             //Arrange
@@ -22,6 +23,7 @@ namespace CalculationsTest
             Assert.False(string.IsNullOrEmpty(costumer.Name));
         }
         [Fact]
+        [Trait("Category","Costumer")]
         public void Customer_AgeBetween_25and45()
         {
             //Arrange
@@ -33,6 +35,7 @@ namespace CalculationsTest
         }
 
         [Fact]
+        [Trait("Category", "Costumer")]
         public void Customer_UpdateCostume()
         {
             //Arrange
@@ -44,6 +47,7 @@ namespace CalculationsTest
         }
 
         [Fact]
+        [Trait("Category", "Costumer")]
         public void Customer_CreateNewCostume()
         {
             //Arrange

@@ -11,6 +11,7 @@ namespace CalculationsTest
     public class NamesTests
     {
         [Fact]
+        [Trait("Category", "Name")]
         public void getName_givenTwoValues_returnFullName()
         {
             //Arrange
@@ -22,6 +23,7 @@ namespace CalculationsTest
         }
 
         [Fact]
+        [Trait("Category", "Name")]
         public void getName_givenTwoValues_returnContain()
         {
             //Arrange
@@ -33,6 +35,7 @@ namespace CalculationsTest
         }
 
         [Fact]
+        [Trait("Category", "Name")]
         public void getName_givenTwoValues_returnContainIgnoringCase()
         {
             //Arrange
