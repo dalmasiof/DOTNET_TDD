@@ -3,13 +3,18 @@ using Xunit;
 
 namespace CalculationsTest
 {
-    public class CalculatorTest
+    //Add fixture to not make a new instance of the object for each test
+    public class CalculatorFixture
     {
-        [Fact]
-        [Trait("Category", "Calculator")]
-        public void TestAdd()
+        public Calculator Calculator => new Calculator();
+    }
+
+    public class CalculatorTest : IClassFixture<CalculatorFixture>
+    {
+        private readonly CalculatorFixture _calculator;
+        public CalculatorTest(CalculatorFixture calculatorFixture)
         {
-            Assert.True(true);
+            _calculator = calculatorFixture;
         }
 
         [Fact]
@@ -17,7 +22,7 @@ namespace CalculationsTest
         public void Add_giventwoValues_ReturnDouble()
         {
             //Arrange
-            Calculator calcClass = new Calculator();
+            var calcClass = _calculator.Calculator;
             //Act
             var result = calcClass.addDouble(1.50, 0.5);
             //Acert
@@ -29,7 +34,7 @@ namespace CalculationsTest
         public void Add_giventwoValues_ReturnInt()
         {
             //Arrange
-            Calculator calcClass = new Calculator();
+            var calcClass = _calculator.Calculator;
             //Act
             var result = calcClass.add(1, 5);
             //Acert

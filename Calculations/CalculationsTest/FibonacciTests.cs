@@ -8,16 +8,26 @@ using Xunit;
 
 namespace CalculationsTest
 {
-    public class FibonacciTests
+    public class FibonacciFixture
     {
+        public FibonacciSeries Fibo => new FibonacciSeries();
+    }
+    public class FibonacciTests:IClassFixture<FibonacciFixture>
+    {
+        private readonly FibonacciFixture _fixture;
+        public FibonacciTests(FibonacciFixture fixture)
+        {
+            _fixture = fixture;
+        }
+
         [Fact]
         [Trait("Category", "Fibo")]
         public void Fibonacci_hasNoZero()
         {
             //Arrange
-            FibonacciSeries fibonacci = new FibonacciSeries();
+            var result = _fixture.Fibo.Fibonacci;
             //Act
-            var result = fibonacci.Fibonacci;
+
             //Assert
             Assert.All(result, n => Assert.NotEqual(0, n));
         }
@@ -27,9 +37,8 @@ namespace CalculationsTest
         public void Fibonacci_has13()
         {
             //Arrange
-            FibonacciSeries fibonacci = new FibonacciSeries();
+            var result = _fixture.Fibo.Fibonacci;
             //Act
-            var result = fibonacci.Fibonacci;
             //Assert
             Assert.Contains(13,result);
         }
@@ -40,9 +49,8 @@ namespace CalculationsTest
         public void Fibonacci_hasNo4()
         {
             //Arrange
-            FibonacciSeries fibonacci = new FibonacciSeries();
+            var result = _fixture.Fibo.Fibonacci;
             //Act
-            var result = fibonacci.Fibonacci;
             //Assert
             Assert.DoesNotContain(4, result);
         }

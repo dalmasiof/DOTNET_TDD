@@ -8,14 +8,23 @@ using Xunit;
 
 namespace CalculationsTest
 {
-    public class CostumerTest
+    public class CostumerFixture
     {
+        public Costumer Costumer => new Costumer();
+    }
+    public class CostumerTest:IClassFixture<CostumerFixture>
+    {
+        private readonly CostumerFixture _fixture;
+        public CostumerTest(CostumerFixture fixture)
+        {
+            _fixture = fixture;
+        }
         [Fact]
         [Trait("Category", "Costumer")]
         public void Customer_name_notEmpty()
         {
             //Arrange
-            Costumer costumer = new Costumer();
+            var costumer = _fixture.Costumer;
             //Act
 
             //Assert
@@ -27,7 +36,7 @@ namespace CalculationsTest
         public void Customer_AgeBetween_25and45()
         {
             //Arrange
-            Costumer costumer = new Costumer();
+            var costumer = _fixture.Costumer;  
             //Act
 
             //Assert
@@ -39,7 +48,7 @@ namespace CalculationsTest
         public void Customer_UpdateCostume()
         {
             //Arrange
-            Costumer costumer = new Costumer();
+            var costumer = _fixture.Costumer;
             //Act
 
             //Assert
@@ -51,7 +60,7 @@ namespace CalculationsTest
         public void Customer_CreateNewCostume()
         {
             //Arrange
-            Costumer costumer = new Costumer();
+            var costumer = _fixture.Costumer;
             //Act
             var result = costumer.NewConsumer();
             //Assert

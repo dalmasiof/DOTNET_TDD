@@ -8,14 +8,24 @@ using Xunit;
 
 namespace CalculationsTest
 {
-    public class NamesTests
+    public class NamesFixture
     {
+        public Names Names => new Names();
+    }
+
+    public class NamesTests : IClassFixture<NamesFixture>
+    {
+        private readonly NamesFixture _fixture;
+        public NamesTests(NamesFixture fixture)
+        {
+            _fixture = fixture;
+        }
         [Fact]
         [Trait("Category", "Name")]
         public void getName_givenTwoValues_returnFullName()
         {
             //Arrange
-            Names names = new Names();
+            var names = _fixture.Names;
             //Act
             var result = names.getName("Joao", "Pedro");
             //Assert
@@ -27,7 +37,7 @@ namespace CalculationsTest
         public void getName_givenTwoValues_returnContain()
         {
             //Arrange
-            Names names = new Names();
+            var names = _fixture.Names;
             //Act
             var result = names.getName("Joao", "Pedro");
             //Assert
@@ -39,7 +49,7 @@ namespace CalculationsTest
         public void getName_givenTwoValues_returnContainIgnoringCase()
         {
             //Arrange
-            Names names = new Names();
+            var names = _fixture.Names;
             //Act
             var result = names.getName("Joao", "Pedro");
             //Assert
