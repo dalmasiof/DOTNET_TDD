@@ -10,5 +10,15 @@ namespace Calculations
     {
         public string Name => "Dalmasio";
         public int Age => 25;
+
+        public void UpdateConsumer()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Costumer NewConsumer()
+        {
+            return new Costumer();
+        }
     }
 }

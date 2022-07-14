@@ -31,5 +31,27 @@ namespace CalculationsTest
             //Assert
             Assert.InRange(costumer.Age, 25,45);
         }
+
+        [Fact]
+        public void Customer_UpdateCostume()
+        {
+            //Arrange
+            Costumer costumer = new Costumer();
+            //Act
+
+            //Assert
+            Assert.Throws<NotImplementedException>(()=>costumer.UpdateConsumer());
+        }
+
+        [Fact]
+        public void Customer_CreateNewCostume()
+        {
+            //Arrange
+            Costumer costumer = new Costumer();
+            //Act
+            var result = costumer.NewConsumer();
+            //Assert
+            Assert.IsType(typeof(Costumer),result);
+        }
     }
 }
