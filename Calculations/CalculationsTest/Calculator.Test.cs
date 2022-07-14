@@ -1,5 +1,6 @@
 ﻿using Calculations;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace CalculationsTest
 {
@@ -12,15 +13,19 @@ namespace CalculationsTest
     public class CalculatorTest : IClassFixture<CalculatorFixture>
     {
         private readonly CalculatorFixture _calculator;
-        public CalculatorTest(CalculatorFixture calculatorFixture)
+        private readonly ITestOutputHelper _testOutputHelper;
+
+        public CalculatorTest(CalculatorFixture calculatorFixture, ITestOutputHelper testOutputHelper)
         {
             _calculator = calculatorFixture;
+            _testOutputHelper = testOutputHelper;
         }
 
         [Fact]
         [Trait("Category", "Calculator")]
         public void Add_giventwoValues_ReturnDouble()
         {
+            _testOutputHelper.WriteLine("Test start at {0}",DateTime.Now);
             //Arrange
             var calcClass = _calculator.Calculator;
             //Act
