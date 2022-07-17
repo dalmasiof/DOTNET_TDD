@@ -8,7 +8,7 @@ namespace Calculations
 {
     public class Calculator
     {
-        public int add(int a,int b)
+        public int add(int a, int b)
         {
             return a + b;
         }
@@ -16,6 +16,11 @@ namespace Calculations
         public double addDouble(double a, double b)
         {
             return a + b;
+        }
+
+        public bool isOdd(int number)
+        {
+            return (number % 2) == 1;
         }
     }
 }

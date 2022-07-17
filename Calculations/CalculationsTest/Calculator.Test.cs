@@ -45,5 +45,22 @@ namespace CalculationsTest
             //Acert
             Assert.Equal(6, result);
         }
+
+
+        [Theory]
+        [Trait("Category", "Calculator")]
+        [InlineData(1,true)]//execute te test with this params
+        [InlineData(4, false)]//execute te test with this params, can use a static class do pass values 
+
+        public void IsOdd_testOddandEven(int value,bool expected)
+        {
+            //Arrange
+            Calculator calculator = new Calculator();
+            //Act
+            var result = calculator.isOdd(value);
+            //Assert
+            Assert.Equal(expected, result);
+        }
+
     }
 }
